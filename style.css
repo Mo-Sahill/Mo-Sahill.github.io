@@ -14,11 +14,11 @@ body {
 /* Navigation */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Changed to space-between for better alignment */
     align-items: center;
-    padding: 0 20px;
     height: 50px;
     background-color: rgb(61, 28, 138);
+    padding: 0 20px; /* Added padding for better spacing */
 }
 
 nav ul {
