@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Login Page</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #191414;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-container {
+        background-color: #333;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .login-container h2 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .login-container form {
+        margin-bottom: 20px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+
+    .login-container input[type="submit"] {
+        width: 100%;
+        background-color: #1DB954;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .login-container input[type="submit"]:hover {
+        background-color: #18a54a;
+    }
+
+    .login-container a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .login-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Log in to Spotify</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="submit" value="Log In">
+        </form>
+        <p>Don't have an account? <a href="Signup.html">Sign up</a></p>
+    </div>
+</body>
+</html>
