@@ -138,7 +138,7 @@ async function main() {
 
 
     //get the list of all songs
-    getSongs("happy");
+    getSongs("mood");
     playMusic(songs[0], true);
 
     // Display all the albums on the page
