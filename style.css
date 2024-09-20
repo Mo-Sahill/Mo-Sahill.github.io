@@ -5,10 +5,13 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     background-color: rgb(165, 143, 152);
     color: black;
     font-family: 'Poppins', sans-serif;
+    height: 100%; /* Make sure the body takes full height */
+    display: flex; /* Use Flexbox for the layout */
+    flex-direction: column; /* Stack items vertically */
 }
 
 /* Navigation */
@@ -80,6 +83,7 @@ footer {
     color: wheat;
     padding: 12px 0;
     width: 100%; /* Ensure it stretches full width */
+    margin-top: auto; /* Push footer to the bottom */
 }
 
 .footer {
@@ -118,6 +122,7 @@ footer {
 
 /* Main Content */
 main {
+    flex: 1; /* Allow main to grow and fill space */
     margin: 20px;
 }
 
