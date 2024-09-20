@@ -42,7 +42,7 @@ nav ul li {
 }
 
 .left {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 /* First Section */
@@ -60,9 +60,12 @@ nav ul li {
 }
 
 .rightSection img {
-    max-width: 100%;
+    max-width: 95%;
     height: auto;
+    border-radius: 50%; /* This makes the image circular */
+    border: 5px solid white; /* Optional: adds a border for better visibility */
 }
+
 
 .purple {
     color: rgb(177, 11, 102);
