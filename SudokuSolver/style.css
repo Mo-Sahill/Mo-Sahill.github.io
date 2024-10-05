@@ -42,7 +42,7 @@ td:nth-child(3n) {
 }
 
 .padd {
-    padding-bottom: 70px;
+    padding-top: 5px;
 }
 
 button {
@@ -51,7 +51,7 @@ button {
     background-color: #4a90e2;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
@@ -65,4 +65,10 @@ button:hover {
 
 .solving {
     background-color: #80f8c6; 
+}
+
+a{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-decoration: none;
 }
