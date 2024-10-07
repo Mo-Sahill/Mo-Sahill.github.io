@@ -32,7 +32,6 @@ main {
 
 .winner{
     border-radius: 1rem;
-    background-color: #fb8500;
     height: 99vh;
     width: 99vh;
     display: flex;
@@ -92,4 +91,21 @@ main {
     cursor: pointer;
     border-radius: 0.5rem;
     background-color: #F2E5BF;
+}
+
+@media (max-width: 500px) {
+    .game{
+        width: 35vh;
+        height: 50vh;
+    }
+
+    .winner{
+        height: 100vh;
+        width: 50vh;
+    }
+
+    .newGame, .reset{
+        width: 10rem;
+        height: 2rem;
+    }
 }

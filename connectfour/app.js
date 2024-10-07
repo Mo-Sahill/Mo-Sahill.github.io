@@ -43,6 +43,7 @@ newGame.addEventListener("click", () => {
     });
     moveX = true;
     winner.classList.add("hide");
+    moves = 0;
 });
 
 let showWinner = () => {
@@ -62,6 +63,8 @@ let showWinner = () => {
 let showDraw = () => {
     winner.classList.remove("hide");
     document.querySelector(".msg").innerText = `This is a draw`;
+    moveX = true;
+    moves = 0;
 }
 
 let disableAll = () => {
