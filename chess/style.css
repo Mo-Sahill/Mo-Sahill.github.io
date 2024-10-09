@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #cdb4db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffc8dd;
+    border-radius: 2rem;
+    padding: 50px;
+    padding-top: 10px;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(8, 10vh);
+    grid-template-rows: repeat(8, 10vh);
+}
+
+.cell{
+    height: 10vh;
+    width: 10vh;
+    border: 1px grey solid;
+}
+
+.cell img{
+    height: 10vh;
+    width: 10vh;
+}
+
+.highlight{
+    background-color: rgba(87, 255, 87, 0.466);
+}
