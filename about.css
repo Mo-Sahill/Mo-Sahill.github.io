@@ -1,28 +1,60 @@
-main {
-    margin: 30px;
+.intro{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
 
-h1 {
+.intro p{
+    margin-top: 20px;
+    font-size: 1.4rem;
+}
+
+.leftSection{
+    flex-basis: 45%;
+}
+
+.rightSection{
+    flex-basis: 45%;
+}
+
+.skills{
+    margin-top: 50px;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin-left: 20px;
+    flex-direction: column;
+    text-align: left;
+}
+
+.skills h1{
     text-align: center;
-    font-size: 35px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h2 {
-    font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.skill-catagories{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-main > p {
-    margin: 10px 35px 10px 20px;
-    font-size: 20px;
+.skill-category{
+    flex: 1 1 30%;
+    margin-top: 20px;
 }
 
-main > ul {
-    margin: inherit;
+.skill-category h3 {
+    font-size: 1.5rem;
+    color: #344e41;
+    margin-bottom: 10px;
 }
 
-main > ul > li {
-    margin: 10px 35px 10px 10px;
-    font-size: 15px;
+.skill-category ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-category ul li {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }

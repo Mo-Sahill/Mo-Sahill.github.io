@@ -8,57 +8,46 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav>
-            <div class="left">Sahil's Portfolio</div>
-            <div class="right">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                </ul>
-            </div>
+        <div class="logo">Sahil's Portfolio</div>
+        <nav class="right">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section class="firstSection">
-            <div class="leftSection">
-                Hi, My name is
-                <span class="purple">Sahil</span>
-                <div> and I am a passionate </div>
-                <span id="element"></span>
-            </div>
-            <div class="rightSection">
-                <img src="profile.jpg" alt="My Profile Photo">
-            </div>
+        <section class="leftSection">
+            Hi, My name is <span class="purple">Mo Sahil</span> and <br>I am a <span id="element"></span>
+        </section>
+        <section class="rightSection">
+            <img src="profile.jpg" alt="My Profile Photo">
         </section>
     </main>
 
     <footer>
-        <div class="footer">
-            <div class="first-footer">
-                <h3>Sahil's Portfolio</h3>
-            </div>
-            <div class="second-footer">
-                <a href="http://www.linkedin.com/in/mo-sahil-704473252" target="_blank">
-                    <img class="social" src="https://i.ibb.co/NLcv9Qk/LinkedIn.png" alt="LinkedIn">
-                </a>
-            </div>
-            <div class="second-footer">
-                <a href="mailto:sahilbmu@gmail.com">
-                    <img class="social" src="https://i.ibb.co/YDCy4q8/email.png" alt="Email">
-                </a>
-            </div>
-            <div class="second-footer">
-                <a href="https://github.com/Mo-Sahill" target="_blank">
-                    <img src="https://i.ibb.co/2YWrkHK/github.png" class="social" alt="GitHub">
-                </a>
-            </div>
+        <div class="logo">
+            <h3>Sahil's Portfolio</h3>
+        </div>
+        <div class="socials">
+            <a href="http://www.linkedin.com/in/mo-sahil-704473252" target="_blank">
+                <img class="icon" src="https://i.ibb.co/NLcv9Qk/LinkedIn.png" alt="LinkedIn">
+            </a>
+            <a href="mailto:sahilbmu@gmail.com">
+                <img class="icon" src="https://i.ibb.co/YDCy4q8/email.png" alt="Email">
+            </a>
+            <a href="https://github.com/Mo-Sahill" target="_blank">
+                <img src="https://i.ibb.co/2YWrkHK/github.png" class="icon" alt="GitHub">
+            </a>
         </div>
     </footer>
 
@@ -66,8 +55,8 @@
 
     <script>
         var typed = new Typed('#element', {
-            strings: ['Web Developer', 'Data Scientist', "Software Engineer"],
-            typeSpeed: 50,
+            strings: ['Web Developer', "Cyber Security Enthusiast", 'Data Scientist'],
+            typeSpeed: 60,
         });
     </script>
 

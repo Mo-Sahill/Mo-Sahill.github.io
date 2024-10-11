@@ -8,91 +8,101 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <nav>
-            <div class="left">Sahil's Portfolio</div>
-            <div class="right">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                </ul>
-            </div>
+        <div class="logo">Sahil's Portfolio</div>
+        <nav class="right">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <div class="project project8">
-            <h2>Connect Four Game</h2>
-            <p>Two-player strategy game, similar to Tic Tac Toe, but played on a 4x4 grid. Players take turns marking their blocks, aiming to connect four in a row horizontally, vertically, or diagonally. Built using HTML, CSS, and JavaScript.</p>
-            <a href="connectfour/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project9">
-            <h2> Chess Game</h2>
-            <p>Currently in Development</p>
-            <a href="chess/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project7">
-            <h2>Tic Tac Toe Game</h2>
-            <p>A two player Tic Tac Toe Game built with HTML, CSS and JavaScript.</p>
-            <a href="ticTacToe/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project4">
-            <h2>Spotify CLone</h2>
-            <p>A spotify clone built with HTML, CSS and JavaScript.</p>
-            <a href="spotify/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project5">
-            <h2>Sudoku Solver</h2>
-            <p>A sudoku solver built with HTML, CSS and JavaScript by implementing backtracking algorithm.</p>
-            <a href="SudokuSolver/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project6">
-            <h2>SMS Spam Detection Analysis</h2>
-            <p>The SMS Spam Detection Analysis uses a Naive Bayes classifier to identify spam messages in the SMS Spam Collection dataset through data cleaning, visualization, and model evaluation. It is implemented using R Language.</p>
-            <a href="Spam_detector.html" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project3">
-            <h2>Restaurant website</h2>
-            <p>A simple static Restaurant website built with HTML, CSS and JavaScript.</p>
-            <a href="restaurant-website/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project2">
-            <h2>QR Code Generator</h2>
-            <p>A simple QR Code Generator built with HTML, CSS and JavaScript.</p>
-            <a href="QR-Code-Generator/" target="_blank">Click here to check it out!</a>
-        </div>
-        <div class="project project1">
-            <h2>Calculator</h2>
-            <p>A simple Calculator built with HTML, CSS and JavaScript.</p>
-            <a href="calculator/" target="_blank">Click here to check it out!</a>
+        <div class="projects">
+            <div class="project">
+                <img src="imgs/connectfour.png" alt="Connect Four Game">
+                <h2>Connect Four Game</h2>
+                <p>
+                    Two-player strategy game, played on a 4x4 grid. Built using HTML, CSS, and JavaScript.
+                </p>
+                <a href="connectfour/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project">
+                <img src="imgs/chess.png" alt="Chess Game">
+                <h2> Chess Game</h2>
+                <p>Currently in Development</p>
+                <a href="chess/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project">
+                <img src="https://www.dev-sahil.tech/images/ticTacToe.png" alt="Tic Tac Toe Game">
+                <h2>Tic Tac Toe Game</h2>
+                <p>A two player Tic Tac Toe Game built with HTML, CSS and JavaScript.</p>
+                <a href="ticTacToe/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project project4">
+                <img src="https://www.dev-sahil.tech/images/spotifyClone.png" alt="Connect Four Game">
+                <h2>Spotify CLone</h2>
+                <p>A spotify clone built with HTML, CSS and JavaScript.</p>
+                <a href="spotify/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project project5">
+                <img src="https://www.dev-sahil.tech/images/sudoku-solver.png" alt="Connect Four Game">
+                <h2>Sudoku Solver</h2>
+                <p>A sudoku solver built with HTML, CSS and JavaScript by implementing backtracking algorithm.</p>
+                <a href="SudokuSolver/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project project6">
+                <img src="https://www.dev-sahil.tech/images/sms-spam-detection.png" alt="Connect Four Game">
+                <h2>SMS Spam Detection Analysis</h2>
+                <p>The SMS Spam Detection Analysis uses a Naive Bayes classifier to identify spam messages in the SMS
+                    Spam
+                    Collection dataset through data cleaning, visualization, and model evaluation. It is implemented
+                    using R
+                    Language.</p>
+                <a href="Spam_detector.html" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project project3">
+                <img src="https://www.dev-sahil.tech/images/restaurant-website.png" alt="Connect Four Game">
+                <h2>Restaurant website</h2>
+                <p>A simple static Restaurant website built with HTML, CSS and JavaScript.</p>
+                <a href="restaurant-website/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project project2">
+                <img src="https://www.dev-sahil.tech/images/qr.png" alt="Connect Four Game">
+                <h2>QR Code Generator</h2>
+                <p>A simple QR Code Generator built with HTML, CSS and JavaScript.</p>
+                <a href="QR-Code-Generator/" target="_blank">Click here to check it out!</a>
+            </div>
+            <div class="project project1">
+                <img src="https://www.dev-sahil.tech/images/calculator.png" alt="Connect Four Game">
+                <h2>Calculator</h2>
+                <p>A simple Calculator built with HTML, CSS and JavaScript.</p>
+                <a href="calculator/" target="_blank">Click here to check it out!</a>
+            </div>
         </div>
     </main>
 
     <footer>
-        <div class="footer">
-            <div class="first-footer">
-                <h3>Sahil's Portfolio</h3>
-            </div>
-            <div class="second-footer">
-                <a href="http://www.linkedin.com/in/mo-sahil-704473252" target="_blank">
-                    <img class="social" src="https://i.ibb.co/NLcv9Qk/LinkedIn.png" alt="LinkedIn">
-                </a>
-            </div>
-            <div class="second-footer">
-                <a href="mailto:sahilbmu@gmail.com">
-                    <img class="social" src="https://i.ibb.co/YDCy4q8/email.png" alt="Email">
-                </a>
-            </div>
-            <div class="second-footer">
-                <a href="https://github.com/Mo-Sahill" target="_blank">
-                    <img src="https://i.ibb.co/2YWrkHK/github.png" class="social" alt="GitHub">
-                </a>
-            </div>
+        <div class="logo">
+            <h3>Sahil's Portfolio</h3>
+        </div>
+        <div class="socials">
+            <a href="http://www.linkedin.com/in/mo-sahil-704473252" target="_blank">
+                <img class="icon" src="https://i.ibb.co/NLcv9Qk/LinkedIn.png" alt="LinkedIn">
+            </a>
+            <a href="mailto:sahilbmu@gmail.com">
+                <img class="icon" src="https://i.ibb.co/YDCy4q8/email.png" alt="Email">
+            </a>
+            <a href="https://github.com/Mo-Sahill" target="_blank">
+                <img src="https://i.ibb.co/2YWrkHK/github.png" class="icon" alt="GitHub">
+            </a>
         </div>
     </footer>
 
