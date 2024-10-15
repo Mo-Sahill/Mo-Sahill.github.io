@@ -58,3 +58,29 @@
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
+
+@media (max-width: 768px) {
+    .intro{
+        flex-direction: column;
+    }
+
+    .skill-catagories{
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .leftSection    p{
+        font-size: 1rem;
+    }
+
+    .skill-category h3{
+        font-size: 1.2rem;
+    }
+
+    .skill-category ul li{
+        font-size: 1rem;
+    }
+}

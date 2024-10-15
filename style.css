@@ -103,7 +103,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 70vh;
     margin-right: 10vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
@@ -115,7 +115,8 @@ footer {
     border-radius: 1rem;
 }
 
-@media (max-width: 768px) {
+/* Adjust for smaller screens */
+@media (max-width: 400px) {
     header{
         padding: 2px 2px;
     }
@@ -157,12 +158,8 @@ footer {
         display: block;
     }
 
-    .footer{
-        display: flex;
-        width: 100%;
-    }
-
     .socials{
+        width: 140px;
         margin: 0;
     }
 
