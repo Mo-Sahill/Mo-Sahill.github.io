@@ -100,6 +100,7 @@ h1 {
         font-size: 1.5rem;
     }
     .result-overlay{
-        top: 150px;
+        top: 220px;
+        height: 350px;
     }
 }
