@@ -103,8 +103,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70vh;
-    margin-right: 10vh;
+    width: 50%;
+    margin-right: 10px;
     padding-top: 2vh;
     padding-bottom: 2vh;
 }
@@ -157,8 +157,12 @@ footer {
         display: block;
     }
 
+    .footer{
+        display: flex;
+        width: 100%;
+    }
+
     .socials{
-        width: 140px;
         margin: 0;
     }
 
