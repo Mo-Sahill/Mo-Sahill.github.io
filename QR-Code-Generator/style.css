@@ -3,9 +3,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
     background-color: #b3dfc9;
+    display: flex;
 }
 
 .container {
@@ -17,6 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 150px;
+    margin-bottom: 200px;
 }
 
 input {
