@@ -10,6 +10,7 @@ body {
 
 #container {
     text-align: center;
+    margin-top: 100px;
 }
 
 table {
@@ -68,7 +69,5 @@ button:hover {
 }
 
 a{
-    padding-bottom: 50px;
-    padding-top: 50px;
     text-decoration: none;
 }
