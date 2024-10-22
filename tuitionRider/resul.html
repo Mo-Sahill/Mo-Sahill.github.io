@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            width: 800px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #4CAF50;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            color: #333;
+            width: 30%;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 65%;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .add-subject {
+            background-color: #007bff;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-subject:hover {
+            background-color: #0069d9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        .remove-btn {
+            padding: 6px 10px;
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #ff1a1a;
+        }
+
+        .success-msg {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            display: none;
+            text-align: center;
+        }
+
+        /* Suggestion Section Styles */
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            margin-top: 15px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            border-color: #4CAF50;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Report Card</h1>
+
+        <!-- Add Student Information -->
+        <div class="form-group">
+            <label for="student-name">Student Name:</label>
+            <input type="text" id="student-name" placeholder="Enter student's name">
+        </div>
+
+        <div class="form-group">
+            <label for="student-class">Class:</label>
+            <select id="student-class">
+                <option value="">Select Class</option>
+                <option value="10th">10th</option>
+                <option value="11th">11th</option>
+                <option value="12th">12th</option>
+            </select>
+        </div>
+
+        <!-- Subject Input Fields -->
+        <div id="subject-container">
+            <div class="form-group subject-group">
+                <label for="subject-1">Subject:</label>
+                <input type="text" id="subject-1" placeholder="Subject Name">
+                <input type="number" id="grade-1" placeholder="Grade" min="0" max="100">
+            </div>
+        </div>
+
+        <button class="add-subject" onclick="addSubject()">Add Another Subject</button>
+
+        <!-- Suggestion Section -->
+        <div class="form-group">
+            <label for="suggestion">Suggestions:</label>
+            <textarea id="suggestion" rows="4" placeholder="Enter any suggestions or comments"></textarea>
+        </div>
+
+        <button onclick="submitReport()">Submit Report</button>
+
+        <!-- Success Message -->
+        <div id="success-msg" class="success-msg">Report Submitted Successfully!</div>
+    </div>
+
+    <script>
+        let subjectCount = 1;
+
+        function addSubject() {
+            subjectCount++;
+            const subjectContainer = document.getElementById('subject-container');
+            const div = document.createElement('div');
+            div.classList.add('form-group', 'subject-group');
+            div.innerHTML = `
+                <label for="subject-${subjectCount}">Subject:</label>
+                <input type="text" id="subject-${subjectCount}" placeholder="Subject Name">
+                <input type="number" id="grade-${subjectCount}" placeholder="Grade" min="0" max="100">
+            `;
+            subjectContainer.appendChild(div);
+        }
+
+        function submitReport() {
+            const name = document.getElementById('student-name').value;
+            const studentClass = document.getElementById('student-class').value;
+            const suggestion = document.getElementById('suggestion').value;
+            const subjects = [];
+
+            for (let i = 1; i <= subjectCount; i++) {
+                const subjectName = document.getElementById(`subject-${i}`).value;
+                const subjectGrade = parseFloat(document.getElementById(`grade-${i}`).value);
+                if (subjectName && !isNaN(subjectGrade)) {
+                    subjects.push({ subject: subjectName, grade: subjectGrade });
+                }
+            }
+
+            if (!name || !studentClass || subjects.length === 0) {
+                alert('Please fill in all fields and grades.');
+                return;
+            }
+
+            // Store the student data in localStorage
+            const studentData = { name, class: studentClass, subjects, suggestion };
+            localStorage.setItem('studentData', JSON.stringify(studentData));
+
+            // Show success message and redirect to result.html after 2 seconds
+            document.getElementById('success-msg').style.display = 'block';
+            setTimeout(() => {
+                window.location.href = 'resul1.html'; // Ensure this points to your results page
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

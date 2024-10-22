@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card - Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            width: 800px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #4CAF50;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        .improve-message {
+            background-color: #ffcccc;
+            color: #a94442;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .gpa-section {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Suggestion section */
+        .suggestion-section {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+            display: none;
+        }
+
+        .suggestion-section ul {
+            margin-top: 10px;
+        }
+
+        .suggestion-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: #ff4c4c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Report Card</h1>
+        <div id="student-info">
+            <!-- Student info will be displayed here -->
+        </div>
+
+        <table id="subject-table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Subjects will be displayed here -->
+            </tbody>
+        </table>
+
+        <!-- GPA Section -->
+        <div class="gpa-section">
+            <p id="average-gpa">Average GPA: </p>
+        </div>
+
+        <!-- Message Section -->
+        <div id="improve-message" class="improve-message">
+            Some subjects have a GPA below 7. Please consider improving your performance.
+        </div>
+
+        <div id="success-message" class="success-message">
+            Congratulations! You have maintained a good GPA.
+        </div>
+
+        <!-- Suggestion Section -->
+        <div id="suggestion-section" class="suggestion-section">
+            <h2>Suggestions for Improvement</h2>
+            <ul id="suggestion-list">
+                <!-- Suggestions will be displayed here -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve student data from localStorage
+            const studentData = JSON.parse(localStorage.getItem('studentData'));
+
+            if (studentData) {
+                // Display student name and class
+                const studentInfo = document.getElementById('student-info');
+                studentInfo.innerHTML = `<p><strong>Name:</strong> ${studentData.name}</p>
+                                         <p><strong>Class:</strong> ${studentData.class}</p>`;
+
+                // Display subjects and grades
+                const subjectTable = document.getElementById('subject-table').querySelector('tbody');
+                const suggestionList = document.getElementById('suggestion-list');
+                let totalGrades = 0;
+                let showImproveMessage = false;
+                let hasSuggestions = false;
+
+                studentData.subjects.forEach(subject => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${subject.subject}</td><td>${subject.grade}</td>`;
+                    subjectTable.appendChild(row);
+
+                    // Sum up the grades to calculate average GPA
+                    totalGrades += subject.grade;
+
+                    // Check if any subject has a grade less than 7
+                    if (subject.grade < 7) {
+                        showImproveMessage = true;
+                        hasSuggestions = true;
+
+                        // Add suggestions for improvement based on the subject
+                        const suggestion = document.createElement('li');
+                        suggestion.innerHTML = `Consider additional practice or resources for <span class="highlight">${subject.subject}</span> as your grade is ${subject.grade}.`;
+                        suggestionList.appendChild(suggestion);
+                    }
+                });
+
+                // Calculate and display the average GPA
+                const averageGPA = (totalGrades / studentData.subjects.length).toFixed(2);
+                document.getElementById('average-gpa').innerHTML = `Average GPA: ${averageGPA}`;
+
+                // Show message based on grades
+                if (showImproveMessage) {
+                    document.getElementById('improve-message').style.display = 'block';
+                } else {
+                    document.getElementById('success-message').style.display = 'block';
+                }
+
+                // Show suggestion section if there are any suggestions
+                if (hasSuggestions) {
+                    document.getElementById('suggestion-section').style.display = 'block';
+                }
+                
+                // Display suggestions entered by the user
+                const userSuggestions = studentData.suggestion;
+                if (userSuggestions) {
+                    const userSuggestionItem = document.createElement('li');
+                    userSuggestionItem.innerHTML = userSuggestions;
+                    suggestionList.appendChild(userSuggestionItem);
+                    suggestionList.parentElement.style.display = 'block';
+                }
+            } else {
+                alert('No student data found. Please go back and submit the form.');
+            }
+        });
+    </script>
+
+</body>
+</html>

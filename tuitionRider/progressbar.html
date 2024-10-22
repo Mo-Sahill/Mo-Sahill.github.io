@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Course Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .course-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .course-plan {
+            margin-top: 20px;
+            text-align: left;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .course-plan h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        label:hover {
+            background-color: #eef2f7;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #4b6cb7, #182848);
+            border-radius: 10px;
+            transition: width 0.4s ease;
+        }
+
+        #progress-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .course-item {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-course {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .add-course input {
+            width: 75%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .add-course button {
+            padding: 10px;
+            background-color: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .add-course button:hover {
+            background-color: #182848;
+        }
+
+        .remove-btn {
+            background-color: #ff4c4c;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .remove-btn:hover {
+            background-color: #ff1a1a;
+        }
+
+        .save-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .save-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Course Planner</h1>
+
+        <!-- Add New Course -->
+        <div class="add-course">
+            <input type="text" id="new-course-name" placeholder="Add New Course">
+            <button onclick="addCourse()">Add</button>
+        </div>
+
+        <!-- Course List -->
+        <div class="course-list" id="course-list">
+            <!-- Dynamically populated courses will be here -->
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <p id="progress-text">0% completed</p>
+
+        <!-- Course Plan Section -->
+        <div class="course-plan">
+            <h2>Your Course Plan</h2>
+            <div id="course-plan-list">
+                <!-- Selected courses will be added here dynamically -->
+            </div>
+        </div>
+
+        <!-- Save Button -->
+        <button class="save-btn" onclick="savePlan()">Save Plan</button>
+    </div>
+
+    <script>
+        let courses = [];
+
+        // Function to add a new course
+        function addCourse() {
+            const courseName = document.getElementById('new-course-name').value;
+            if (courseName) {
+                const courseId = courses.length;
+                courses.push({ id: courseId, name: courseName, completed: false });
+                renderCourses();
+                document.getElementById('new-course-name').value = ''; // Clear input
+            }
+        }
+
+        // Function to remove a course
+        function removeCourse(courseId) {
+            courses = courses.filter(course => course.id !== courseId);
+            renderCourses();
+        }
+
+        // Function to update progress and plan
+        function updateProgress() {
+            const completedCourses = courses.filter(course => course.completed).length;
+            const totalCourses = courses.length;
+            const progressPercentage = (completedCourses / totalCourses) * 100;
+
+            document.getElementById('progress-bar').style.width = progressPercentage + '%';
+            document.getElementById('progress-text').innerText = Math.round(progressPercentage) + '% completed';
+
+            // Update course plan list
+            const coursePlanList = document.getElementById('course-plan-list');
+            coursePlanList.innerHTML = ''; // Clear current plan
+            courses.forEach((course, index) => {
+                if (course.completed) {
+                    const listItem = document.createElement('div');
+                    listItem.className = 'course-item';
+                    listItem.innerText = (index + 1) + '. ' + course.name;
+                    coursePlanList.appendChild(listItem);
+                }
+            });
+        }
+
+        // Function to render courses in the list
+        function renderCourses() {
+            const courseList = document.getElementById('course-list');
+            courseList.innerHTML = ''; // Clear current list
+            courses.forEach(course => {
+                const label = document.createElement('label');
+                label.classList.add('course-item');
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = course.completed;
+                checkbox.onclick = () => {
+                    course.completed = checkbox.checked;
+                    updateProgress();
+                };
+
+                const courseText = document.createTextNode(course.name);
+
+                const removeBtn = document.createElement('button');
+                removeBtn.classList.add('remove-btn');
+                removeBtn.innerText = 'Remove';
+                removeBtn.onclick = () => removeCourse(course.id);
+
+                label.appendChild(checkbox);
+                label.appendChild(courseText);
+                label.appendChild(removeBtn);
+
+                courseList.appendChild(label);
+            });
+            updateProgress();
+        }
+
+        // Function to save the plan to localStorage
+        function savePlan() {
+            localStorage.setItem('coursePlanner', JSON.stringify(courses));
+            alert('Course plan saved!');
+        }
+
+        // Load saved plan on page load
+        window.onload = function() {
+            const savedCourses = localStorage.getItem('coursePlanner');
+            if (savedCourses) {
+                courses = JSON.parse(savedCourses);
+                renderCourses();
+            }
+        };
+    </script>
+
+</body>
+</html>
