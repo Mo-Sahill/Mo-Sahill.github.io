@@ -125,7 +125,7 @@ footer {
     }
 
     .logo {
-        font-size: 1rem;
+        font-size: 1.15rem;
         margin: 0;
         margin-left: 5px;
     }
@@ -138,6 +138,7 @@ footer {
 
     nav ul {
         width: 95%;
+        font-size: 1.15rem;
     }
 
     nav ul li {
