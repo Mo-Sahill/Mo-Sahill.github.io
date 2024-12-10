@@ -135,6 +135,10 @@ footer {
         justify-content: center;
     }
 
+    nav ul {
+        width: 95%;
+    }
+
     nav ul li {
         margin: 1vmin;
         font-size: 0.8rem;
