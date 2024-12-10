@@ -177,6 +177,12 @@ footer {
         width: 30px;
         height: 30px;
     }
+
+    footer {
+        position: sticky;
+        bottom: 0;
+        padding: 5px;
+    }
 }
 
 .projects {
