@@ -40,3 +40,29 @@ body{
 .highlight{
     background-color: rgba(87, 255, 87, 0.466);
 }
+
+@media (max-width: 768px){
+    .board{
+        grid-template-columns: repeat(8, 5vh);
+        grid-template-rows: repeat(8, 5vh);
+    }
+
+    .cell{
+        height: 5vh;
+        width: 5vh;
+        border: 1px grey solid;
+    }
+
+    .cell img{
+        height: 5vh;
+        width: 5vh;
+    }
+
+    .container{
+        border-radius: 1rem;
+        padding: 20px;
+        padding-top: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

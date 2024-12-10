@@ -121,6 +121,7 @@ footer {
 @media (max-width: 768px) {
     header {
         padding: 2px 2px;
+        height: 30px;
     }
 
     .logo {
@@ -143,6 +144,7 @@ footer {
         height: 80vh;
         align-content: center;
         padding: 5vh 3vh;
+        font-size: 2rem;
     }
 
     .rightSection {
