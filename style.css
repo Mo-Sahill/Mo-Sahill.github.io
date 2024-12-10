@@ -127,6 +127,7 @@ footer {
     .logo {
         font-size: 1rem;
         margin: 0;
+        margin-left: 5px;
     }
 
     .index {
